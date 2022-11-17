@@ -1,0 +1,19 @@
+ 
+En consola
+Scaffold-DbContext "Server=(localdb)\MSSQLLocalDB;Database=ParcialFinal;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+En Json
+"ConnectionStrings":{
+
+    "DefaultConnectionString":"Server=(localdb)\MSSQLLocalDB;Database=ParcialFinal;Trusted_Connection=True;MultipleActiveResultSets=true;"
+
+  },
+
+En program.cs
+builder.Services.AddDbContext<ParcialFinalContext>(options =>
+
+{
+
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString"));
+
+});
